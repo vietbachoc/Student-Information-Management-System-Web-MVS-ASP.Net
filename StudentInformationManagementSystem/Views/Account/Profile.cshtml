@@ -1,0 +1,36 @@
+@model StudentInformationManagementSystem.Models.UserProfileViewModel
+
+@{
+    ViewData["Title"] = "User Profile";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">@ViewData["Title"]</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 text-center">
+                            <img src="@Model.ProfileImage" alt="Profile Image" class="img-fluid rounded-circle">
+                        </div>
+                        <div class="col-md-9">
+                            <h3>@Model.Name</h3>
+                            <p class="mb-0">
+                                <i class="fas fa-envelope"></i> @Model.EmailAddress
+                            </p>
+                            <p class="mb-0">
+                                @if (User.IsInRole("admin"))
+                                {
+                                    <span class="badge badge-success">Admin</span>
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
